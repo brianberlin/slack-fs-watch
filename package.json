@@ -1,0 +1,18 @@
+{
+  "name": "file-system-watcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Berlin <bri@nberl.in>",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.254.1",
+    "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
+    "slack": "^11.0.0",
+    "uuid": "^3.2.1"
+  }
+}
