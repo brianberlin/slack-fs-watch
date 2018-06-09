@@ -16,7 +16,7 @@ const event = (eventType, filename) => {
   files.push({ eventType, filename })
 }
 
-fs.watch(`${__dirname}/`, { recursive: true }, event)
+fs.watch(process.env.WATCH_DIRECTORY, { recursive: true }, event)
 
 setInterval(async () => {
   if (!files.length) return
