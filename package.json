@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./node_modules/.bin/forever start index.js"
   },
   "author": "Brian Berlin <bri@nberl.in>",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "aws-sdk": "^2.254.1",
     "axios": "^0.18.0",
     "dotenv": "^6.0.0",
+    "forever": "^0.15.3",
     "slack": "^11.0.0",
     "uuid": "^3.2.1"
   }
