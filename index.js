@@ -18,11 +18,11 @@ const event = (eventType, filename) => {
 
 fs.watch(process.env.WATCH_DIRECTORY, { recursive: true }, event)
 
-setInterval(async () => {
+const process = async () => {
+  console.log("Start")
   if (!files.length) return
-
+  console.log("There are files.")
   const id = uuid()
-
   let text = files.map(x => `${x.filename} *${x.eventType}*`)
 
   try {
@@ -32,12 +32,14 @@ setInterval(async () => {
       Body: text.join('\n'),
       ContentType: 'text/html'
     }).promise()
+    console.log("File Uploaded")
 
     const url = await s3.getSignedUrl('getObject', {
       Bucket: process.env.AWS_BUCKET,
       Key: id,
       Expires: 60 * 60 * 24 * 30
     })
+    console.log("Signed URL")
 
     const json = {
       attachments: [{
@@ -47,11 +49,16 @@ setInterval(async () => {
       }]
     }
 
-    console.log(JSON.stringify(json))
     await axios.post(process.env.WEBHOOK_URL, json)
+    console.log("Message Sent")
   } catch (e) {
+    console.log("Error")
     console.log(e)
   }
 
+
   files.length = 0
-}, 1000 * 60 * 30)
+}
+
+setTimeout(process, 1000 * 10)
+setInterval(process, 1000 * 60 * 30)
