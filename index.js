@@ -44,7 +44,7 @@ const func = async () => {
     const json = {
       attachments: [{
         pretext: `${config.parsed.WEBSITE}\n\t${text.slice(0, 4).join('\n\t')}`,
-        title: 'FSWatch',
+        title: `FSWatch - ${config.parsed.WEBSITE}`,
         title_link: url
       }]
     }
