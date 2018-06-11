@@ -1,5 +1,5 @@
 const config = require('dotenv').config()
-const fs = require('fs')
+const watch = require('node-watch')
 const AWS = require('aws-sdk')
 const axios = require('axios')
 const uuid = require('uuid').v4
@@ -16,7 +16,7 @@ const event = (eventType, filename) => {
   files.push({ eventType, filename })
 }
 
-fs.watch(config.parsed.WATCH_DIRECTORY, { recursive: true }, event)
+watch(config.parsed.WATCH_DIRECTORY, { recursive: true }, event)
 
 const func = async () => {
   console.log("Start", files)
