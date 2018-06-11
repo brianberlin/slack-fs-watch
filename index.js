@@ -19,7 +19,7 @@ const event = (eventType, filename) => {
 fs.watch(config.parsed.WATCH_DIRECTORY, { recursive: true }, event)
 
 const func = async () => {
-  console.log("Start")
+  console.log("Start", files)
   if (!files.length) return
   console.log("There are files.")
   const id = uuid()
