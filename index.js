@@ -18,7 +18,7 @@ const event = (eventType, filename) => {
 
 fs.watch(config.parsed.WATCH_DIRECTORY, { recursive: true }, event)
 
-const process = async () => {
+const func = async () => {
   console.log("Start")
   if (!files.length) return
   console.log("There are files.")
@@ -60,5 +60,5 @@ const process = async () => {
   files.length = 0
 }
 
-setTimeout(process, 1000 * 10)
-setInterval(process, 1000 * 60 * 30)
+setTimeout(func, 1000 * 10)
+setInterval(func, 1000 * 60 * 30)
