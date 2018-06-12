@@ -60,5 +60,4 @@ const func = async () => {
   files.length = 0
 }
 
-// setTimeout(func, 1000 * 10)
-setInterval(func, 1000 * 10)
+setInterval(func, 1000 * Number(config.parsed.INTERVAL_IN_SECONDS))
